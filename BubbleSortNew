@@ -1,0 +1,48 @@
+import java.util.Arrays;
+import java.lang;
+import java.util;
+// Java program for implementation of Bubble Sort
+/*Bubble Sort is the simplest sorting algorithm that works by repeatedly swapping the adjacent elements if they are in the wrong order*/
+/*It takes a variable "swapped" which tells when the array is completely sorted . Hence no further sorting is necessary.*/
+
+class BubbleSort {
+	void bubbleSort(int a[])
+	{
+		int n=a.length;
+        int swapped=0;
+        int i=0;
+        int j=0;
+        for(i=0;i<n;i++){
+            swapped=0;
+            for(j=0;j<n-i-1;j++){
+                if(a[j]>a[j+1]){
+                    a[j]+=a[j+1];
+                    a[j+1]=a[j+1]-a[j];
+                    a[j]=a[j]-a[j+1];
+                    swapped=1;
+                }
+            }
+            if(swapped==0){
+                break;
+            }
+        }
+	}
+
+	/* Prints the array */
+	void printArray(int a[])
+	{
+		for(int k: a){
+         System.out.println(k);
+        }
+	}
+
+	// Driver method to test above
+	public static void main(String args[])
+	{
+		BubbleSort ob = new BubbleSort();
+		int a[] = { 64, 34, 25, 12, 22, 11, 90 };
+		ob.bubbleSort(a);
+		System.out.println("Sorted array");
+		ob.printArray(a);
+	}
+}
